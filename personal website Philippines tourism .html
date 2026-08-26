@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Isla Pilipinas | EmTech Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#fffaf0;
+    color:#17342d;
+    line-height:1.6;
+}
+
+/* NAVIGATION */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#064e3b;
+    padding:15px 5%;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#ffd166;
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd166;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    padding:50px 8%;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,60,45,.65),rgba(0,60,45,.65)),
+    url("https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:60px;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ffd166;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.button{
+    display:inline-block;
+    background:#ffd166;
+    color:#064e3b;
+    padding:12px 20px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+.button:hover{
+    background:#f4a261;
+}
+
+/* SECTIONS */
+section{
+    padding:70px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:#064e3b;
+    font-size:35px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    color:#087f5b;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+}
+
+/* DESTINATIONS */
+.destination{
+    position:relative;
+    height:280px;
+    border-radius:15px;
+    overflow:hidden;
+    color:white;
+}
+
+.destination img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.destination-info{
+    position:absolute;
+    bottom:0;
+    padding:20px;
+    width:100%;
+    background:linear-gradient(transparent,rgba(0,0,0,.8));
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.about-text h2{
+    color:#064e3b;
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.about-text p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+/* PORTFOLIO */
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    background:white;
+    padding:25px;
+    border-left:6px solid #087f5b;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.project h3{
+    color:#064e3b;
+}
+
+.project p{
+    color:#666;
+    margin:10px 0;
+}
+
+.project a{
+    color:#087f5b;
+    font-weight:bold;
+}
+
+/* CONTACT */
+.contact{
+    background:#064e3b;
+    color:white;
+}
+
+.contact h2{
+    color:#ffd166;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+.social{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid white;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    margin:5px;
+}
+
+.social:hover{
+    background:#ffd166;
+    color:#064e3b;
+}
+
+/* FOOTER */
+footer{
+    background:#033c2d;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    nav ul{
+        gap:10px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .cards,
+    .gallery,
+    .portfolio,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .about img{
+        height:300px;
+    }
+}
+
+@media(max-width:500px){
+
+    header{
+        position:relative;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        font-size:13px;
+    }
+
+    .hero{
+        min-height:80vh;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    section{
+        padding:50px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+<nav>
+
+<div class="logo">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.submitted-to {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+
+    background: linear-gradient(
+        120deg,
+        #000000 0%,
+        #000000 35%,
+        #d4af37 45%,
+        #ffffff 50%,
+        #d4af37 55%,
+        #000000 65%,
+        #000000 100%
+    );
+
+    background-size: 250% 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: shine 2.5s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 250% center;
+    }
+
+    100% {
+        background-position: -250% center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ISLA PILIPINAS🇵🇭">
+ISLA PILIPINAS🇵🇭
+    
+</div>
+
+</body>
+</html>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#tourism">Tourism</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Discover the <span>Beauty</span> of the Philippines
+</h1>
+
+<p>
+Welcome to my Philippine Tourism website and EmTech digital portfolio.
+Explore beautiful destinations, Filipino culture, delicious food,
+traditions, and unforgettable experiences.
+</p>
+
+<a href="#tourism" class="button">
+Explore Philippines
+</a>
+
+<a href="#portfolio" class="button">
+My Portfolio
+</a>
+
+</div>
+
+</section>
+
+
+<!-- TOURISM -->
+<section id="tourism">
+
+<div class="section-title">
+
+<h2>🇵🇭 Philippine Tourism</h2>
+
+<p>
+Discover the beauty, culture, food, and experiences of the Philippines.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<!-- PALAWAN -->
+<div class="card">
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-90a1970c-8cbe-4cc4-9b1e-0e7d569c519a.jpg">
+
+<div class="card-content">
+
+<h3>🏝️ Palawan</h3>
+
+<p>
+Palawan is famous for its beautiful beaches, clear waters,
+limestone cliffs, lagoons, and amazing island scenery.
+</p>
+
+</div>
+</div>
+
+
+<!-- BOHOL -->
+<div class="card">
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-24da32d0-08d9-456a-aa17-9c1e31c249cb.jpg">
+
+<div class="card-content">
+
+<h3>⛰️ Bohol</h3>
+
+<p>
+Bohol is known for the Chocolate Hills, beautiful beaches,
+countryside views, and rich Filipino culture.
+</p>
+
+</div>
+</div>
+
+
+<!-- BORACAY -->
+<div class="card">
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-7fa1a156-29b7-488c-8d95-a39ec52b591f.jpg">
+
+<div class="card-content">
+
+<h3>🌊 Boracay</h3>
+
+<p>
+Boracay is popular for its beautiful beaches, sunsets,
+water activities, and relaxing island atmosphere.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CULTURE -->
+<section style="background:#f0f8f3;">
+
+<div class="section-title">
+
+<h2>🎭 Filipino Culture & Experiences</h2>
+
+<p>
+Experience the traditions and lifestyle of the Filipino people.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>🍲 Filipino Food</h3>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-4aadb0df-5cb2-4b7f-ba72-79e31467bc71.jpg" width="250" height="550">
+
+Enjoy Filipino favorites such as adobo, sinigang,
+lechon, pancit, halo-halo, and many local dishes.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>🎉 Festivals</h3>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-89c2ef90-d004-4364-8082-6b686d44ca9d.jpg" width="800" height="500">
+Filipino festivals show our creativity through
+music, dancing, colorful costumes, and traditions.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>🌴 Travel Experiences</h3>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-232c487b-4f3b-487e-b190-5c245e1018a6.jpg" width="800" height="500">
+Enjoy island hopping, hiking, camping, swimming,
+heritage tours, local markets, and adventures.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+
+<div class="section-title">
+
+<h2>📸 Tourism Gallery</h2>
+
+<p>
+A collection of beautiful Philippine-inspired travel photos.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-3d166d44-5250-47f9-ae0b-3c9623fe43c1.jpg">
+
+<img src="https://images.unsplash.com/photo-1476673160081-cf065607f449?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-242233ce-1b38-4193-9041-704f2dcc1bfe.jpg">
+
+</div>
+
+</section>
+
+
+<!-- ABOUT ME -->
+<section id="about" style="background:#f0f8f3;">
+
+<div class="about">
+
+              <h2>👋 ABOUT ME👋</h2>
+
+<img src="https://cdn.phototourl.com/member/2026-08-26-e31b4d99-a71b-469d-a2e2-b12db7fc9934.jpg">
+
+<div class="about-text">
+
+
+<p>
+Hello! My name is <strong>EL JHON N. AGOT</strong>.
+I am a student creating this website as part of my
+EmTech digital portfolio.
+</p>
+
+<p>
+I enjoy learning about Philippine tourism, traveling,
+photography, culture, and creative digital projects.
+</p>
+
+<p>
+Through this website, I want to show my creativity
+and what I have learned in Empowerment Technologies.
+</p>
+
+<p>
+<strong>My goal:</strong> To combine technology,
+creativity, and my love for the Philippines.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+<div class="section-title">
+
+<h2>💻 My Online Portfolio</h2>
+
+<p>
+My EmTech projects, activities, and digital outputs.
+</p>
+
+</div>
+
+
+<div class="portfolio">
+
+<div class="project">
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-431de591-07cb-47e4-aabc-e9496c61eb3b.jpg" width="250" height="550">  
+</p>
+<p>
+ <img src="https://cdn.phototourl.com/member/2026-08-26-64e65bf9-0c1a-4ba5-bdac-989d7b50265a.png" width="350" height="350">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-235eb31b-590f-44e8-abcf-735d70397c9c.jpg" width="250" height="150">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-d62bcd23-db11-4139-ae72-ef8f2dacef52.png" width="550" height="500">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-32f79091-c010-4c70-9646-27c05fd93b83.png" width="550" height="500">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-c41871cc-0817-4e81-9c2d-6c8c69a33422.jpg" width="550" height="500">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-26f2e92a-1dad-40fc-b67f-196e9206157f.jpg" width="550" height="500">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-54de07d9-7cd3-4b3f-84f2-9349b2b22f1c.jpg" width="200" height="200">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-4158d69a-43f6-4230-a86d-a79a3adc686b.png" width="200" height="300">
+
+
+<h3> Videos</h3>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-44e2c910-472b-412d-b182-c9477df6bbd0.png" width="200" height="380">
+</p>
+
+<p>
+<img src="https://cdn.phototourl.com/member/2026-08-26-7cb41f22-978c-4c93-981a-fc4c703d4b3a.png" width="200" height="380">
+
+
+
+
+
+
+
+<p>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+<div class="section-title">
+
+<h2>📩 Contact Me</h2>
+
+<p style="color:white;">
+Let's connect and share our love for creativity and the Philippines.
+</p>
+
+</div>
+
+<p>
+📧 Email: <strong>[ejhon7640@gmail.com]</strong>
+</p>
+
+<p>
+📍 Location: <strong>[East Poblacion, Alburquerque, Bohol, Philippines]</strong>
+</p>
+
+
+<div style="margin-top:20px;">
+
+<a href="#" class="social">
+Facebook
+El Jhon
+</a>
+</a>
+</a>
+
+<a href="#" class="social">
+Instagram
+El_jannn
+</a>
+
+<a href="#" class="social">
+TikTok
+Jhan°
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+© 2026 Isla Pilipinas | EmTech Digital Portfolio
+</p>
+
+<p>
+Made with ❤️ and 🇵🇭
+</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.submitted-to {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+
+    background: linear-gradient(
+        120deg,
+        #000000 0%,
+        #000000 35%,
+        #d4af37 45%,
+        #ffffff 50%,
+        #d4af37 55%,
+        #000000 65%,
+        #000000 100%
+    );
+
+    background-size: 250% 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: shine 2.5s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 250% center;
+    }
+
+    100% {
+        background-position: -250% center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="submitted-to">
+    Submitted to: Mr. Lenjun Vincent Boiser
+</div>
+
+</body>
+</html>
+</footer>
+
+</body>
+</html>
